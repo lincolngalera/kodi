@@ -1,0 +1,18 @@
+---
+- hosts: kodi
+- remote_user: lincoln
+- become: yes
+  
+  task:
+  
+  - Name: instalar software-properties
+    command: sudo apt-get install software-properties-common
+
+  - Name: adicionar repositorio
+    command: sudo add-apt-repository ppa:team-xbmc/ppa
+
+  - Name: update
+    command: sudo apt-get update
+
+  - Name: instalar Kodi
+    command: sudo apt-get install kodi
